@@ -1,0 +1,23 @@
+name: Coords
+main: Coords\Coords
+version: 1.0.0
+api: 3.0.0-ALPHA10
+
+author: kenygamer
+description: A PocketMine-MP plugin to see your or someone else's coordinates
+
+commands:
+ coords:
+  description: See your or someone else's coordinates.
+  usage: "/coords [player]"
+
+coords.command:
+ description: Allows access to all Coords features.
+ default: op
+ children:
+  coords.command.me:
+   description: Permission to see your coordinates.
+   default: true
+  coords.command.others:
+   description: Permission to see someone else's coordinates.
+   default: op
