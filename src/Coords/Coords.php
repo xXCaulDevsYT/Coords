@@ -54,22 +54,22 @@ class Coords extends PluginBase{
       return true;
     }
     
-    if(!$sender->hasPermission("coords") || !$sender->hasPermission("coords.command.others")){
+    if($sender->hasPermission("coords") || $sender->hasPermission("coords.command.others")){
+      $player = strtolower($args[0]);
+      if(($player = $this->getServer()->getPlayer($player)) === null){
+        $sender->sendMessage(TextFormat::RED . "Player is not online.");
+        return true;
+      }
+      $x = round($player->getX());
+      $y = round($player->getY());
+      $z = round($player->getZ());
+      $level = $player->getLevel()->getName();
+      $sender->sendMessage(TextFormat::GREEN . $player->getName() . "'s" . TextFormat::WHITE . " coordinates: [" . TextFormat::GREEN . $x . TextFormat::WHITE . ", " . TextFormat::GREEN . $y . TextFormat::WHITE . ", " . TextFormat::GREEN . $z . TextFormat::WHITE . "] (level: " . TextFormat::GREEN . $level . TextFormat::WHITE . ")");
+      return true;
+  }else{
       $sender->sendMessage(TextFormat::RED . "You do not have permission to use this command");
       return true;
     }
-    
-    $player = strtolower($args[0]);
-    if(($player = $this->getServer()->getPlayer($player)) === null){
-      $sender->sendMessage(TextFormat::RED . "Player is not online.");
-      return true;
-    }
-    $x = round($player->getX());
-    $y = round($player->getY());
-    $z = round($player->getZ());
-    $level = $player->getLevel()->getName();
-    $sender->sendMessage(TextFormat::GREEN . $player->getName() . "'s" . TextFormat::WHITE . " coordinates: [" . TextFormat::GREEN . $x . TextFormat::WHITE . ", " . TextFormat::GREEN . $y . TextFormat::WHITE . ", " . TextFormat::GREEN . $z . TextFormat::WHITE . "] (level: " . TextFormat::GREEN . $level . TextFormat::WHITE . ")");
-    return true;
   }
   
 }
