@@ -37,11 +37,11 @@ class Coords extends PluginBase{
    * @return bool
    */
   public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
-    if(isset($args[0]) and !$sender instanceof Player){
-      $sender->sendMessage(TextFormat::RED . "Please run command in-game.");
-      return true;
-    }
     if(!isset($args[0])){
+      if(!$sender instanceof Player){
+        $sender->sendMessage(TextFormat::RED . "Please run command in-game.");
+        return true;
+      }
       if(!$sender->hasPermission("coords") || !$sender->hasPermission("coords.command.me")){
         $sender->sendMessage(TextFormat::RED . "You do not have permission to use this command");
         return true;
