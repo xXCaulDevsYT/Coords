@@ -12,7 +12,7 @@ commands:
   usage: "/coords [player]"
 
 coords.command:
- description: Allows access to all Coords features.
+ description: Allows access to all Coords commands.
  default: op
  children:
   coords.command.me:
