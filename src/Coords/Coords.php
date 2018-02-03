@@ -57,7 +57,7 @@ class Coords extends PluginBase{
     if($sender->hasPermission("coords") || $sender->hasPermission("coords.command.others")){
       $player = strtolower($args[0]);
       if(($player = $this->getServer()->getPlayer($player)) === null){
-        $sender->sendMessage(TextFormat::RED . "Player is not online.");
+        $sender->sendMessage(TextFormat::RED . "Player " . strtolower($player) . " is not online.");
         return true;
       }
       $x = round($player->getX());
