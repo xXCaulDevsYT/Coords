@@ -42,19 +42,16 @@ class Coords extends PluginBase{
         $sender->sendMessage(TextFormat::RED . "Please run command in-game.");
         return true;
       }
-      if(!$sender->hasPermission("coords") || !$sender->hasPermission("coords.command.me")){
-        $sender->sendMessage(TextFormat::RED . "You do not have permission to use this command");
+      if($sender->hasPermission("coords") || $sender->hasPermission("coords.command") || $sender->hasPermission("coords.command.coords")){
+        $x = round($sender->getX());
+        $y = round($sender->getY());
+        $z = round($sender->getZ());
+        $level = $sender->getLevel()->getName();
+        $sender->sendMessage("X: " . TextFormat::GREEN . $x . TextFormat::WHITE . " Y: " . TextFormat::GREEN . $y . TextFormat::WHITE . " Z: " . TextFormat::GREEN . $z . TextFormat::WHITE . "\n" . "Level: " . TextFormat::GREEN . $level);
         return true;
       }
-      $x = round($sender->getX());
-      $y = round($sender->getY());
-      $z = round($sender->getZ());
-      $level = $sender->getLevel()->getName();
-      $sender->sendMessage("X: " . TextFormat::GREEN . $x . TextFormat::WHITE . " Y: " . TextFormat::GREEN . $y . TextFormat::WHITE . " Z: " . TextFormat::GREEN . $z . TextFormat::WHITE . "\n" . "Level: " . TextFormat::GREEN . $level);
-      return true;
-    }
-    
-    if($sender->hasPermission("coords") || $sender->hasPermission("coords.command.others")){
+    }  
+    if($sender->hasPermission("coords") || $sender->hasPermission("coords.command") || $sender->hasPermission("coords.command") || $sender->hasPermission("coords.command.others")){
       $player = strtolower($args[0]);
       if(($player = $this->getServer()->getPlayer($player)) === null){
         $sender->sendMessage(TextFormat::RED . "Player " . strtolower($player) . " is not online.");
