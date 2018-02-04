@@ -3,7 +3,7 @@
 ![](https://img.shields.io/github/release/kenygamer/Coords/all.svg)
 ![](https://img.shields.io/github/downloads/kenygamer/Coords/total.svg)
 
-A PocketMine-MP plugin to see your or someone's coordinates. To see your coordinates, use /coords. To see someone's else coordinates, use /coords \<player\>
+A PocketMine-MP plugin to see your or someone's coordinates. To see your coordinates, use /coords. To see someone else's coordinates, use /coords \<player\>
 ## Commands
 | Command | Usage | Description |
 | ------- | ----- | ----------- |
