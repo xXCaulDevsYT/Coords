@@ -1,6 +1,6 @@
 name: Coords
 main: Coords\Coords
-version: 1.0.0-beta
+version: 1.0.1-beta
 api: 3.0.0-ALPHA10
 
 author: kenygamer
@@ -10,14 +10,20 @@ commands:
  coords:
   description: See your or someone else's coordinates.
   usage: "/coords [player]"
-
-coords.command:
- description: Allows access to all Coords commands.
- default: op
- children:
-  coords.command.me:
-   description: Permission to see your coordinates.
-   default: true
-  coords.command.others:
-   description: Permission to see someone else's coordinates.
-   default: op
+  
+permissions:
+ coords:
+  description: Allows access to all Coords features.
+  default: false
+  children:
+   coords.command:
+    description: Allows access to all Coords commands.
+    default: false
+    children:
+     coords.command.coords:
+      description: Allows access to the coords command.
+      default: op
+      children:
+       coords.command.coords.others:
+        description: "Permission to see someone else's coordinates."
+        default: op
