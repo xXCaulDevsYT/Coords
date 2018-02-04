@@ -10,14 +10,19 @@ A PocketMine-MP plugin to see your or someone's coordinates. To see your coordin
 | `/coords` | `/coords [player]` | See your or someone's coordinates.
 ## Permissions
 ```yml
-coords.command:
+coords:
  description: Allows access to all Coords features.
- default: op
+ default: false
  children:
-  coords.command.me:
-   description: Permission to see your coordinates.
-   default: true
-  coords.command.others:
-   description: Permission to see someone else's coordinates.
-   default: op
+  coords.command:
+   description: Allows access to all Coords commands.
+   default: false
+   children:
+    coords.command.coords:
+     description: Allows access to the coords command.
+     default: op
+     children:
+      coords.command.coords.others:
+       description: "Permission to see someone else's coordinates."
+       default: op
  ```
