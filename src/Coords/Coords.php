@@ -17,7 +17,7 @@
 
 declare(strict_types=1);
 
-namespace Coords;
+namespace kenygamer\Coords;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
