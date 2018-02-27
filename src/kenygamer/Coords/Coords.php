@@ -42,6 +42,7 @@ class Coords extends PluginBase{
         $sender->sendMessage(TextFormat::RED . "Please run command in-game.");
         return true;
       }
+      
       if($sender->hasPermission("coords") || $sender->hasPermission("coords.command") || $sender->hasPermission("coords.command.coords")){
         $x = round($sender->getX());
         $y = round($sender->getY());
@@ -51,10 +52,10 @@ class Coords extends PluginBase{
         return true;
       }
     }  
-    if($sender->hasPermission("coords") || $sender->hasPermission("coords.command") || $sender->hasPermission("coords.command") || $sender->hasPermission("coords.command.others")){
-      $player = strtolower($args[0]);
-      if(($player = $this->getServer()->getPlayer($player)) === null){
-        $sender->sendMessage(TextFormat::RED . "Player " . strtolower($player) . " is not online.");
+    if($sender->hasPermission("coords") || $sender->hasPermission("coords.command") || $sender->hasPermission("coords.command.coords") || $sender->hasPermission("coords.command.others")){
+      $player = $this->getServer()->getPlayer($args[0]);
+      if(!$player instanceof Player){
+        $sender->sendMessage(TextFormat::RED . "Player " . strtolower($args[0]) . " is not online.");
         return true;
       }
       $x = round($player->getX());
