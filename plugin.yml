@@ -1,6 +1,6 @@
 name: Coords
 main: kenygamer\Coords\Coords
-version: 1.0.1-beta
+version: 1.0.2-beta
 api: [3.0.0-ALPHA10, 3.0.0-ALPHA11]
 
 author: kenygamer
